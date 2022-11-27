@@ -5,6 +5,18 @@
       <%= form.text_field :title, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'Built a bee trap' %>
     </div>
 
+    <div class="mt-4 flex gap-x-2">
+      <div class="w-full">
+        <%= form.label :dollars, class: 'block text-sm font-medium text-gray-700' %>
+        <%= form.number_field :dollars, step: :any, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: '132.47' %>
+      </div>
+
+      <div class="w-full">
+        <%= form.label :hours, class: 'block text-sm font-medium text-gray-700' %>
+        <%= form.text_field :hours, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'Built a bee trap' %>
+      </div>
+    </div>
+
     <div class="mt-4">
       <%= form.rich_text_area :content, class: 'h-80', placeholder: 'Today I decided to stop making excuses about not being Jesus, the carpenter and I...' %>
     </div>

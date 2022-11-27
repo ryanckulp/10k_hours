@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   resources :dashboard, only: [:index]
-  resources :posts, only: [:index, :new, :create, :show]
+  resources :posts, only: [:index, :new, :edit, :update, :create, :show]
 
   devise_for :users
   get 'logout', to: 'pages#logout', as: 'logout'

@@ -19,6 +19,8 @@ gem 'delayed' # delayed_job_active_record rails 7 fork: https://github.com/bette
 gem 'metamagic' # easily insert metatags for SEO / opengraph
 gem 'rack-cors', :require => 'rack/cors'
 gem 'devise'
+gem 'chartkick'
+gem 'groupdate'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
