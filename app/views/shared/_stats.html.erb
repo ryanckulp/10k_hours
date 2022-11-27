@@ -1,11 +1,11 @@
 <div class="sm:flex gap-x-8 mb-12">
   <div class="w-full">
     <h3 class="text-md font-semibold mb-2">Time Invested</h3>
-    <%= column_chart Post.group_by_week(:created_at, week_start: :monday).sum(:hours), suffix: ' hours' %>
+    <%= column_chart Post.group_by_week(:created_at, week_start: :monday, format: "%b %d").sum(:hours), suffix: ' hours', colors: ["#fcba03"] %>
   </div>
   <div class="w-full">
     <h3 class="text-md font-semibold mb-2">Money Invested</h3>
-    <%= column_chart Post.group_by_week(:created_at, week_start: :monday).sum(:dollars), prefix: '$' %>
+    <%= column_chart Post.group_by_week(:created_at, week_start: :monday, format: "%b %d").sum(:dollars), prefix: '$', colors: ["#07e06c"] %>
   </div>
   <div class="w-full">
     <h3 class="text-md font-semibold mb-4">All Time Stats</h3>

@@ -7,3 +7,11 @@
     Time: <%= post.hours %> hours
   </small>
 </div>
+
+<% if current_user %>
+  <%= link_to 'Edit this post', edit_post_path(post), class: 'underline' %>
+
+  <% if params[:action] == 'show' %>
+    | <%= link_to 'View all posts', root_path, class: 'underline' %>
+  <% end %>
+<% end %>
