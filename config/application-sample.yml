@@ -1,0 +1,11 @@
+admin_email: ryanckulp@gmail.com
+company_name: 10kHours
+postmark_api_token: xxxx-yyy-zzzz
+development:
+  base_url: http://localhost:3000
+  stripe_secret_key: sk_test_asdfasdfasdf
+  stripe_product_price_id: price_1asdfasdf
+production:
+  base_url: https://10khours.to
+  stripe_secret_key: sk_live_asdfasdfasdf
+  stripe_product_price_id: price_1asdfasdf
