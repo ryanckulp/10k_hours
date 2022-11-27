@@ -1,10 +1,9 @@
 class Post < ApplicationRecord
+  include Sluggable
   belongs_to :user
 
   has_rich_text :content
-
   validates_presence_of :title, :content
-
   scope :recent, -> { order(created_at: :desc).first(10) }
 
   class << self

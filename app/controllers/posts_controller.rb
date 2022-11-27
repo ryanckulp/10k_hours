@@ -15,12 +15,12 @@ class PostsController < ApplicationController
 
   def update
     @post.update(post_params)
-    redirect_to @post
+    redirect_to post_path(@post.slug)
   end
 
   def create
     post = current_user.posts.create!(post_params)
-    redirect_to post
+    redirect_to post_path(post.slug)
   end
 
   def show
@@ -29,7 +29,10 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find_by(slug: params[:id])
+    @post = Post.find_by(id: params[:id]) if @post.nil?
+
+    redirect_to root_path, error: 'Post not found' if @post.nil?
   end
 
   def post_params

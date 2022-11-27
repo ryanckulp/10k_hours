@@ -1,3 +1,6 @@
 ADMIN_EMAIL: support@10khours.to
-BASE_URL: https://10khours.to
 PROJECT_NAME: 10kHours
+development:
+  BASE_URL: http://localhost:3000
+production:
+  BASE_URL: https://your-website-here.com
