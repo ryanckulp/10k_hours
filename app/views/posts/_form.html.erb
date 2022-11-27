@@ -1,0 +1,17 @@
+<div class="max-w-3xl mx-auto">
+  <%= form_with model: @post do |form| %>
+    <div>
+      <%= form.label :title, class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.text_field :title, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'Built a bee trap' %>
+    </div>
+
+    <div class="mt-4">
+      <%= form.rich_text_area :content, class: 'h-80', placeholder: 'Today I decided to stop making excuses about not being Jesus, the carpenter and I...' %>
+    </div>
+
+    <div class="mt-2 text-right">
+      <%= form.submit 'Publish', class: 'inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2' %>
+    </div>
+  <% end %>
+
+</div>

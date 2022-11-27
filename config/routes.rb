@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+  root 'posts#index'
+
+  resources :dashboard, only: [:index]
+  resources :posts, only: [:index, :new, :create, :show]
 
   devise_for :users
   get 'logout', to: 'pages#logout', as: 'logout'
-
-  resources :dashboard, only: [:index]
 
   # static pages
   pages = %w(
