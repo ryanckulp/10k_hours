@@ -10,7 +10,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Noto Sans Display', ...defaultTheme.fontFamily.sans],
-        title: ['WC ROUGHTRAD Bta', ...defaultTheme.fontFamily.sans]
+        title: ['WC ROUGHTRAD Bta', 'Walter Turncoat', ...defaultTheme.fontFamily.sans]
       },
       colors: { // custom color palette for branding
         'primary': 'rgb(79, 70, 229)',
