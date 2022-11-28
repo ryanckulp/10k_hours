@@ -1,8 +1,7 @@
 <!-- 10,000 hours progress bar as percentage (mobile only) -->
 <div class="sm:hidden py-4">
-  <small>Progress (<%= project_progress_percentage %>%)</small>
-  <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-    <!-- TODO: make colors customizable -->
-    <div class="bg-blue-600 h-2.5 rounded-full" style="width: <%= project_progress_percentage %>%"></div>
+  <p class="font-title mb-1">Project Progress (<%= project_progress_percentage %>%)</p>
+  <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700 border border-black">
+    <div class="bg-brand-yellow h-4 rounded-full" style="width: <%= project_progress_percentage %>%"></div>
   </div>
 </div>
