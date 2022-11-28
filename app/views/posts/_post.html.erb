@@ -5,7 +5,7 @@
   </div>
 
   <div class="mb-4">
-    <%= post.content %>
+    <%= single_post? ? post.content : post.content.to_plain_text.truncate(140) %>
   </div>
 
   <div class="flex">
