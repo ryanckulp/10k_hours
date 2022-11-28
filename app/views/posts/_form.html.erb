@@ -20,6 +20,18 @@
     <%= form.rich_text_area :content, required: true, class: 'min-h-80', placeholder: 'Today I decided to stop making excuses about not being Jesus, the carpenter and I...' %>
   </div>
 
+  <div class="mb-4 flex gap-x-2">
+    <div>
+      <%= form.label 'Publish Date', class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.date_field :published_at, required: true, value: @post.published_at.try(:to_date) || Date.today %>
+    </div>
+    <div>
+      <%= form.label 'Feature on Timeline', class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.check_box :featured %>
+      <small>If checked, this update will be highlighted on your feed's visual timeline.</small>
+    </div>
+  </div>
+
   <div class="text-right">
     <%= form.submit class: 'cursor-pointer inline-flex items-center rounded-md border border-transparent bg-brand-blue hover:bg-brand-blue-light px-3 py-2 text-sm font-medium leading-4 text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2' %>
   </div>
