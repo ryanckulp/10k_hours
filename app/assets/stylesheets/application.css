@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ @font-face {
+   font-family: 'WC ROUGHTRAD Bta';
+   src: asset_url("WC_RoughTrad.otf") format('opentype');
+   font-weight: regular;
+   font-style: regular;
+ }

@@ -9,14 +9,21 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['Noto Sans Display', ...defaultTheme.fontFamily.sans],
+        title: ['WC ROUGHTRAD Bta', ...defaultTheme.fontFamily.sans]
       },
       colors: { // custom color palette for branding
         'primary': 'rgb(79, 70, 229)',
         'primary-hover': {
           '700': '#a4411c',
           '500': '#EA9A72'
-        }
+        },
+        'brand-yellow': '#f7eb73',
+        'brand-yellow-light': '#fff8af',
+        'brand-blue': '#93caf0',
+        'brand-blue-light': '#d1eafe',
+        'brand-orange': '#efa75d',
+        'brand-orange-light': '#f4c8a1',
       }
     },
   },
