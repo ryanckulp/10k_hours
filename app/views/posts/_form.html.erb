@@ -1,28 +1,26 @@
-<div class="max-w-3xl mx-auto">
-  <%= form_with model: @post do |form| %>
-    <div>
-      <%= form.label :title, class: 'block text-sm font-medium text-gray-700' %>
-      <%= form.text_field :title, required: true, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'Built a bee trap' %>
+<%= form_with model: @post do |form| %>
+  <div class="mb-4">
+    <%= form.label :title, class: 'block text-sm font-medium text-gray-700' %>
+    <%= form.text_field :title, required: true, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'Built a bee trap' %>
+  </div>
+
+  <div class="mb-4 flex gap-x-2">
+    <div class="w-full">
+      <%= form.label :dollars, class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.number_field :dollars, step: :any, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: '132.47' %>
     </div>
 
-    <div class="mt-4 flex gap-x-2">
-      <div class="w-full">
-        <%= form.label :dollars, class: 'block text-sm font-medium text-gray-700' %>
-        <%= form.number_field :dollars, step: :any, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: '132.47' %>
-      </div>
-
-      <div class="w-full">
-        <%= form.label :hours, class: 'block text-sm font-medium text-gray-700' %>
-        <%= form.text_field :hours, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'Built a bee trap' %>
-      </div>
+    <div class="w-full">
+      <%= form.label :hours, class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.text_field :hours, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'Built a bee trap' %>
     </div>
+  </div>
 
-    <div class="mt-4">
-      <%= form.rich_text_area :content, required: true, class: 'h-80', placeholder: 'Today I decided to stop making excuses about not being Jesus, the carpenter and I...' %>
-    </div>
+  <div class="mb-4">
+    <%= form.rich_text_area :content, required: true, class: 'h-80', placeholder: 'Today I decided to stop making excuses about not being Jesus, the carpenter and I...' %>
+  </div>
 
-    <div class="mt-2 text-right">
-      <%= form.submit class: 'inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2' %>
-    </div>
-  <% end %>
-</div>
+  <div class="text-right">
+    <%= form.submit class: 'inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2' %>
+  </div>
+<% end %>

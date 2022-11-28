@@ -1,13 +1,14 @@
-<div class="sm:flex gap-x-8 mb-12">
-  <div class="w-full">
+<!-- sm:flex -->
+<div class="gap-y-8 bg-white p-5 border border-black border-2">
+  <div>
     <h3 class="text-md font-semibold mb-2">Time Invested</h3>
     <%= column_chart Post.group_by_week(:created_at, week_start: :monday, format: "%b %d").sum(:hours), suffix: ' hours', colors: ["#fcba03"] %>
   </div>
-  <div class="w-full">
+  <div>
     <h3 class="text-md font-semibold mb-2">Money Invested</h3>
     <%= column_chart Post.group_by_week(:created_at, week_start: :monday, format: "%b %d").sum(:dollars), prefix: '$', colors: ["#07e06c"] %>
   </div>
-  <div class="w-full">
+  <div>
     <h3 class="text-md font-semibold mb-4">All Time Stats</h3>
     <p>Projects: <%= Post.count %></p>
     <p>Hours: <%= Post.hours_spent.round(1) %> (<%= (Post.hours_spent.round(1) / 10000.0).round(4) %>% to <%= link_to '10k Hours', 'https://github.com/ryanckulp/10k_hours', class: 'underline' %>)</p>

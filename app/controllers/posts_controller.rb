@@ -1,9 +1,12 @@
 class PostsController < ApplicationController
+  include Pagy::Backend
+
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:edit, :update, :show]
 
   def index
     @posts = Post.recent
+    @pagy, @posts = pagy(Post.recent)
   end
 
   def new

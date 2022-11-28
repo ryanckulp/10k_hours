@@ -1,0 +1,25 @@
+<div class="bg-white py-3 max-w-3xl mx-auto px-5 border border-black border-2">
+  <h3 class="text-3xl font-bold text-center">Edit settings</h3>
+
+  <%= form_with model: @user, url: 'settings' do |form| %>
+    <div class="mb-4">
+      <%= form.label :project_name, class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.text_field :project_name, required: true, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: '10k Hours is a live changelog of improvements...' %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :project_description, class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.text_area :project_description, required: true, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: '10k Hours is a live changelog of improvements...' %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label 'Personal Bio', class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.text_area :bio, required: true, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: '10k Hours is a live changelog of improvements...' %>
+    </div>
+
+    <div class="text-right">
+      <%= form.submit 'Update', class: 'btn-cursor inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2' %>
+    </div>
+  <% end %>
+
+</div>

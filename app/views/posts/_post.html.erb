@@ -1,4 +1,4 @@
-<div class="my-8 max-w-3xl">
+<div class="mb-8 bg-white p-5 border border-black border-2 <%= 'mx-auto max-w-3xl' if single_post? %>">
   <h3 class="text-2xl font-bold"><%= link_to post.title, post_path(post.slug) %></h3>
   <%= post.content %>
 
@@ -6,12 +6,14 @@
     Spent: <%= number_to_currency(post.dollars) %> |
     Time: <%= post.hours %> hours
   </small>
+
+  <div class="text-right">
+    <% if current_user %>
+      <%= link_to 'Edit this post', edit_post_path(post), class: 'underline' %>
+
+      <% if single_post? %>
+        | <%= link_to 'View all posts', root_path, class: 'underline' %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
-
-<% if current_user %>
-  <%= link_to 'Edit this post', edit_post_path(post), class: 'underline' %>
-
-  <% if params[:action] == 'show' %>
-    | <%= link_to 'View all posts', root_path, class: 'underline' %>
-  <% end %>
-<% end %>

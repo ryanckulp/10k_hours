@@ -43,5 +43,9 @@ module TenKHours
       g.assets = false # stylesheets
       g.helper = true
     end
+
+    # process/render images with image_processing gem
+    config.active_storage.variant_processor = :mini_magick
+
   end
 end

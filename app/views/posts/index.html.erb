@@ -1,5 +1,21 @@
-<div class="pt-8">
-  <%= render partial: "shared/intro" %>
-  <%= render partial: "shared/stats" %>
-  <%= render @posts %>
+<%= render partial: "shared/intro" %>
+
+<div class="pt-8 sm:flex gap-x-8">
+
+  <%= render "tabs" %>
+
+  <div class="basis-1/6">
+    timeline here
+  </div>
+
+  <div class="basis-4/6">
+    <%= render @posts %>
+    <%== pagy_nav(@pagy) %>
+  </div>
+
+  <div class="basis-1/6">
+    <%= render partial: "shared/about" %>
+    <%= render partial: "shared/stats" %>
+  </div>
+
 </div>

@@ -4,7 +4,7 @@ class Post < ApplicationRecord
 
   has_rich_text :content
   validates_presence_of :title, :content
-  scope :recent, -> { order(created_at: :desc).first(10) }
+  scope :recent, -> { order(created_at: :desc).limit(10) }
 
   class << self
     def hours_spent
