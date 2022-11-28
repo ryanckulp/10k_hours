@@ -1,14 +1,13 @@
 <%= render partial: "shared/intro" %>
 
-<div class="pt-8 sm:flex gap-x-8">
-
+<div class="pt-4 sm:flex gap-x-8">
   <%= render "tabs" %>
 
   <div class="basis-1/6">
     timeline here
   </div>
 
-  <div class="basis-4/6">
+  <div id="project_updates" class="basis-4/6">
     <%= render @posts %>
     <%== pagy_nav(@pagy) %>
   </div>
@@ -17,5 +16,6 @@
     <%= render partial: "shared/about" %>
     <%= render partial: "shared/stats" %>
   </div>
-
 </div>
+
+<%= render "tabs_js" %>

@@ -1,0 +1,23 @@
+<script type="text/javascript">
+  var projectUpdates = document.getElementById('project_updates');
+  var projectStats = document.getElementById('project_stats');
+  var projectBio = document.getElementById('project_bio');
+
+  function showUpdates() {
+    projectUpdates.classList.remove('hidden');
+    projectBio.classList.add('hidden');
+    projectStats.classList.add('hidden');
+  }
+
+  function showStats() {
+    projectStats.classList.remove('hidden');
+    projectUpdates.classList.add('hidden');
+    projectBio.classList.add('hidden');
+  }
+
+  function showBio() {
+    projectBio.classList.remove('hidden');
+    projectStats.classList.add('hidden');
+    projectUpdates.classList.add('hidden');
+  }
+</script>
