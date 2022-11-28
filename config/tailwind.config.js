@@ -24,7 +24,10 @@ module.exports = {
         'brand-blue-light': '#d1eafe',
         'brand-orange': '#efa75d',
         'brand-orange-light': '#f4c8a1',
-      }
+      },
+      screens: {
+        'sm': '800px' // turns posts#index to single column sooner than usual
+      },
     },
   },
   plugins: [
