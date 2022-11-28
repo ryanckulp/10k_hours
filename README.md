@@ -3,6 +3,10 @@
 
 a side project changelog by [Ryan Kulp](https://www.ryanckulp.com) with a time- and dollar-spent tracker for new skill development.
 
+![10khours-example-website](https://user-images.githubusercontent.com/3083888/204370072-809d1a5e-99a7-4ac0-857a-02becbd090f0.png)
+
+source: [example website](https://ranch.ryanckulp.com)
+
 ## Want your own 10kHoursTo instance?
 
 great! you have 2 options.
