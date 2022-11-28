@@ -10,7 +10,7 @@
         <li>
           <div>
             <time><b><%= post.published_at.strftime('%b %Y') %></b></time><br>
-            <%= link_to post.title, post_path(post.slug), class: 'text-brand-orange' %>
+            <%= link_to post.title, post_path(post.slug), class: 'cursor-pointer text-brand-orange' %>
           </div>
         </li>
       <% end %>
