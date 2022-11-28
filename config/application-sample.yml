@@ -1,4 +1,5 @@
 ADMIN_EMAIL: support@10khours.to
+POSTMARK_API_TOKEN: asdf-qwer-tyui
 PROJECT_NAME: 10kHours
 development:
   BASE_URL: http://localhost:3000
