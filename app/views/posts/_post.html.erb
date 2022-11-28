@@ -1,6 +1,8 @@
 <div class="mb-8 bg-white p-5 border border-black border-2 <%= 'mx-auto max-w-3xl' if single_post? %>">
   <div class="mb-4 flex">
-    <h3 class="font-title text-2xl font-bold basis-5/6"><%= link_to post.title, post_path(post.slug) %></h3>
+    <h3 class="font-title cursor-pointer text-2xl font-bold basis-5/6">
+      <%= link_to post.title, post_path(post.slug) %>
+    </h3>
     <small class="flex-1 text-right basis-1/6"><%= post.published_at.strftime('%B %d, %Y') %></small>
   </div>
 

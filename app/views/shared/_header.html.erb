@@ -3,7 +3,7 @@
     <div class="flex items-center flex-no-shrink text-white mr-6">
       <% logo_path = current_user ? dashboard_index_path : root_path %>
       <%= link_to logo_path do %>
-        <%= image_tag "avatar.png",  style: "max-height: 45px" %>
+        <%= image_tag "avatar.png", class: 'cursor-pointer', style: "max-height: 45px" %>
       <% end %>
     </div>
     <div class="block sm:hidden">
