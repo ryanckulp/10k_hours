@@ -13,6 +13,6 @@ class SettingsController < ApplicationController
   private
 
   def settings_params
-    params.require(:user).permit(:project_name, :project_description, :bio)
+    params.require(:user).permit(:project_name, :project_description, :bio, :follow_me_link)
   end
 end
