@@ -7,7 +7,7 @@ class SettingsController < ApplicationController
 
   def update
     current_user.update(settings_params)
-    redirect_to root_path, notice: 'Settings updated'
+    redirect_to root_path, notice: 'Project settings updated'
   end
 
   private

@@ -4,6 +4,7 @@ class Post < ApplicationRecord
 
   has_rich_text :content
   validates_presence_of :title, :content
+  validates_uniqueness_of :slug
   scope :recent, -> { order(created_at: :desc).limit(10) }
 
   class << self

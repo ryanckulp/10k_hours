@@ -18,12 +18,12 @@ class PostsController < ApplicationController
 
   def update
     @post.update(post_params)
-    redirect_to post_path(@post.slug)
+    redirect_to post_path(@post.slug), notice: 'Post updated'
   end
 
   def create
     post = current_user.posts.create!(post_params)
-    redirect_to post_path(post.slug)
+    redirect_to post_path(post.slug), notice: 'Post created'
   end
 
   def show
