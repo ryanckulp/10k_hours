@@ -2,11 +2,11 @@ class Post < ApplicationRecord
   include Sluggable
   belongs_to :user
 
-  has_rich_text :content
+  has_rich_text :content, service: (Rails.env.production? ? :amazon_prod : :amazon_dev)
   validates_presence_of :title, :content
   validates_uniqueness_of :slug
 
-  scope :newest_to_oldest, -> { order(created_at: :desc) }
+  scope :newest_to_oldest, -> { order(published_at: :desc) }
   scope :featured, -> { where(featured: true).newest_to_oldest }
 
   class << self

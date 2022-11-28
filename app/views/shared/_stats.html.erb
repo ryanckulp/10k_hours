@@ -9,12 +9,10 @@
   </div>
   <div>
     <h3 class="font-title text-md font-semibold mb-4">Time Invested</h3>
-    <!-- TODO: make colors customizable -->
-    <%= column_chart Post.where(created_at: 12.weeks.ago..Time.now).group_by_week(:created_at, week_start: :monday, format: "%b %d").sum(:hours), suffix: ' hours', colors: brand_colors, dataset: { borderWidth: 0 } %>
+    <%= column_chart Post.where(published_at: 12.weeks.ago..Time.now).group_by_week(:published_at, week_start: :monday, format: "%b %d").sum(:hours), suffix: ' hours', colors: brand_colors, dataset: { borderWidth: 0 } %>
   </div>
   <div>
     <h3 class="font-title text-md font-semibold mb-4">Money Invested</h3>
-    <!-- TODO: make colors customizable -->
-    <%= column_chart Post.where(created_at: 12.weeks.ago..Time.now).group_by_week(:created_at, week_start: :monday, format: "%b %d").sum(:dollars), prefix: '$', colors: brand_colors, dataset: { borderWidth: 0 } %>
+    <%= column_chart Post.where(published_at: 12.weeks.ago..Time.now).group_by_week(:published_at, week_start: :monday, format: "%b %d").sum(:dollars), prefix: '$', colors: brand_colors, dataset: { borderWidth: 0 } %>
   </div>
 </div>
