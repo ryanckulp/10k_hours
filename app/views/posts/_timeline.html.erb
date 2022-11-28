@@ -5,24 +5,15 @@
 
   <section id="timeline" class="mt-2">
     <ul>
-      <li>
-        <div>
-          <time>1934</time>
-          Some content here
-        </div>
-      </li>
-      <li>
-        <div>
-          <time>1957</time>
-          Some content here
-        </div>
-      </li>
-      <li>
-        <div>
-          <time>2011</time>
-          Some content here
-        </div>
-      </li>
+      <!-- TODO: make li "padding-top" dynamic (not 50px fixed) based on period of time between updates -->
+      <% @featured_posts.each do |post| %>
+        <li>
+          <div>
+            <time><b><%= post.published_at.strftime('%b %Y') %></b></time><br>
+            <%= link_to post.title, post_path(post.slug), class: 'text-brand-orange' %>
+          </div>
+        </li>
+      <% end %>
     </ul>
   </section>
 </div>

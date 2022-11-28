@@ -1,19 +1,29 @@
 <div class="mb-8 bg-white p-5 border border-black border-2 <%= 'mx-auto max-w-3xl' if single_post? %>">
-  <h3 class="font-title text-2xl font-bold"><%= link_to post.title, post_path(post.slug) %></h3>
-  <%= post.content %>
+  <div class="mb-4 flex">
+    <h3 class="font-title text-2xl font-bold basis-5/6"><%= link_to post.title, post_path(post.slug) %></h3>
+    <small class="flex-1 text-right basis-1/6"><%= post.published_at.strftime('%B %d, %Y') %></small>
+  </div>
 
-  <small>
-    Spent: <%= number_to_currency(post.dollars) %> |
-    Time: <%= post.hours %> hours
-  </small>
+  <div class="mb-4">
+    <%= post.content %>
+  </div>
 
-  <div class="text-right">
-    <% if current_user %>
-      <%= link_to 'Edit this post', edit_post_path(post), class: 'underline' %>
+  <div class="flex">
+    <div class="">
+      <small>
+        Spent: <%= number_to_currency(post.dollars) %> |
+        Time: <%= post.hours %> hours
+      </small>
+    </div>
 
-      <% if single_post? %>
-        | <%= link_to 'View all posts', root_path, class: 'underline' %>
+    <div class="flex-1 text-right">
+      <% if current_user %>
+        <%= link_to 'Edit this post', edit_post_path(post), class: 'underline' %>
+
+        <% if single_post? %>
+          | <%= link_to 'View all posts', root_path, class: 'underline' %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
