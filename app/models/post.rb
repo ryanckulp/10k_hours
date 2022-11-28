@@ -5,7 +5,9 @@ class Post < ApplicationRecord
   has_rich_text :content
   validates_presence_of :title, :content
   validates_uniqueness_of :slug
-  scope :recent, -> { order(created_at: :desc).limit(10) }
+
+  scope :newest_to_oldest, -> { order(created_at: :desc) }
+  scope :featured, -> { where(featured: true).newest_to_oldest }
 
   class << self
     def hours_spent

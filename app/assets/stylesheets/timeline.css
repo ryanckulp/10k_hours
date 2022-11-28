@@ -23,7 +23,7 @@
 #timeline ul li div {
   position: relative;
   bottom: 0;
-  width: 125px;
+  width: 225px;
   padding: 15px;
   background: #c7f9de;
 }
@@ -38,9 +38,10 @@
 }
 
 #timeline ul li:nth-child(odd) div {
-  left: 45px;
+  left: 40px;
 }
 
+/* right carrot tick */
 #timeline ul li:nth-child(odd) div::before {
   left: -15px;
   border-width: 8px 16px 8px 0;
@@ -48,13 +49,14 @@
 }
 
 #timeline ul li:nth-child(even) div {
-  left: -155px;
+  left: -255px;
 }
 
+/* left carrot tick */
 #timeline ul li:nth-child(even) div::before {
   right: -15px;
   border-width: 8px 0 8px 16px;
-  border-color: transparent transparent transparent #d1eafe;
+  border-color: transparent transparent transparent #c7f9de;
 }
 
 #timeline ul li::after {
