@@ -1,7 +1,7 @@
 <div id="project_stats" class="space-y-4 sm:space-y-8 bg-white p-5 border border-black border-2 hidden sm:block">
   <div>
     <h3 class="text-md font-semibold mb-4">Stats</h3>
-    <p>Project Start: <%= Post.first.created_at.strftime('%B %d, %Y') %></p>
+    <p>Project Start: <%= project_start_date %></p>
     <p>Progress Reports: <%= Post.count %></p>
     <p>Hours: <%= Post.hours_spent.round(1) %> (<%= project_progress_percentage %>% to 10k hours)</p>
     <p>Dollars Spent: <%= number_to_currency(Post.dollars_spent, precision: 2) %></p>

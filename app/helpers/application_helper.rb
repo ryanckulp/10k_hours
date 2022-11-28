@@ -1,4 +1,10 @@
 module ApplicationHelper
+  def project_start_date
+    Post.first.created_at.strftime('%B %d, %Y')
+  rescue
+    Date.today.strftime('%B %d, %Y')
+  end
+
   def project_name
     User.default_user.project_name
   end
