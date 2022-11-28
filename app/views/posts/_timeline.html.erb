@@ -1,0 +1,50 @@
+<!-- Vertical timeline of recent Posts (desktop only) -->
+<div class="">
+  <h3 class="text-2xl font-bold">Important Events</h3>
+
+  <section id="timeline" class="mt-2">
+    <ul>
+      <li>
+        <div>
+          <time>1934</time>
+          Some content here
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>1957</time>
+          Some content here
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>2011</time>
+          Some content here
+        </div>
+      </li>
+    </ul>
+  </section>
+</div>
+
+<script type="text/javascript">
+  var projectTimeline = document.getElementById('timeline');
+  var projectTimelineEvents = Array.from(projectTimeline.getElementsByTagName('li'));
+  var activeTimelineEventClass = 'in-view';
+
+  function activateTimeline() {
+    projectTimelineEvents.forEach(function(timelineEvent) {
+      timelineEvent.addEventListener('mouseover', function(self) {
+        resetActiveTimelineEvent();
+        this.classList.add(activeTimelineEventClass);
+      })
+    });
+  }
+
+  function resetActiveTimelineEvent() {
+    projectTimelineEvents.forEach(function(timelineEvent) {
+      timelineEvent.classList.remove(activeTimelineEventClass);
+    })
+  }
+
+  activateTimeline();
+</script>

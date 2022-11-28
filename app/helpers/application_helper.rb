@@ -10,4 +10,8 @@ module ApplicationHelper
   def project_bio
     User.default_user.bio
   end
+
+  def project_progress_percentage
+    (Post.hours_spent.round(1) / 10000.0).round(4)
+  end
 end
