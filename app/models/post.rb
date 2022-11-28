@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   include Sluggable
   belongs_to :user
 
-  has_rich_text :content, service: (Rails.env.production? ? :amazon_prod : :amazon_dev)
+  has_rich_text :content
   validates_presence_of :title, :content
   validates_uniqueness_of :slug
 

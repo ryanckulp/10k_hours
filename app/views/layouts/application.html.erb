@@ -6,6 +6,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= project_name %> | 10k Hours">
+    <meta name="twitter:image" content="<%= image_url 'open-graph.jpg' %>">
+    <meta property="og:description" content="<%= project_description %>">
+    <meta name="og:image" content="<%= image_url 'open-graph.jpg' %>">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@300;400;500&display=swap" rel="stylesheet">
