@@ -5,26 +5,6 @@ module ApplicationHelper
     Date.today.strftime('%B %d, %Y')
   end
 
-  def default_user
-    User.default_user
-  end
-
-  def follow_me_link
-    default_user.follow_me_link
-  end
-
-  def project_name
-    default_user.project_name
-  end
-
-  def project_description
-    default_user.project_description.html_safe
-  end
-
-  def project_bio
-    default_user.bio.html_safe
-  end
-
   def project_progress_percentage
     (Post.hours_spent.round(1) / 10000.0).round(4)
   end

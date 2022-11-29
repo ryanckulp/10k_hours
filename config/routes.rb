@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :dashboard, only: [:index]
   resources :posts
   get 'settings', to: 'settings#edit', as: 'settings'
-  patch 'settings', to: 'settings#update'
+  resources :projects, only: [:update]
 
   devise_for :users
   get 'logout', to: 'pages#logout', as: 'logout'

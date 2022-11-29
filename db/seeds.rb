@@ -1,15 +1,15 @@
-default_email = 'admin@10khours.to'
-default_password = 'password'
+# create User
+user = User.first
+User.create!(email: 'admin@10khours.to', password: 'password') if user.nil?
 
-user = User.find_by(email: default_email)
+# stub Project
+project = Project.first
 
-if user.nil?
-  User.create!(
-    email: default_email,
-    password: default_password,
-    follow_me_link: 'https://twitter.com/ryanckulp',
-    bio: "<a class=\"underline\" href=\"https://github.com/ryanckulp/10k_hours\" target=\"_blank\">10k Hours</a> is a live changelog of improvements to Kulp Estates, a 50 acre ranch outside Atlanta, GA.",
-    project_name: 'Kulp Estates',
-    project_description: 'Tech entrepreneur learning to farm, raise livestock, and build a compound for experiential networking retreats.'
+if project.nil?
+  Project.create!(
+      name: 'Kulp Estates',
+      tagline: 'Tech entrepreneur learning to farm, raise livestock, and build a compound for experiential networking retreats.',
+      description: "<a class=\"underline\" href=\"https://github.com/ryanckulp/10k_hours\" target=\"_blank\">10k Hours</a> is a live changelog of improvements to Kulp Estates, a 50 acre ranch outside Atlanta, GA.",
+      external_url: 'https://twitter.com/ryanckulp',
   )
 end
