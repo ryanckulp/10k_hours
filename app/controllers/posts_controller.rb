@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   include Pagy::Backend
 
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_post, only: [:edit, :update, :show]
+  before_action :set_post, only: [:edit, :update, :show, :destroy]
 
   def index
     @featured_posts = Post.featured
@@ -27,6 +27,11 @@ class PostsController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to dashboard_index_path, notice: 'Post deleted'
   end
 
   private

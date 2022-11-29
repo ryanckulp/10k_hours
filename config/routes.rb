@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   resources :dashboard, only: [:index]
-  resources :posts, only: [:index, :new, :edit, :update, :create, :show]
+  resources :posts
   get 'settings', to: 'settings#edit', as: 'settings'
   patch 'settings', to: 'settings#update'
 
