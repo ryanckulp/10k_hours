@@ -1,16 +1,16 @@
 <!-- Vertical timeline of recent Posts (desktop only) -->
 <!-- Heavily inspired by tutorial: https://webdesign.tutsplus.com/tutorials/building-a-vertical-timeline-with-css-and-a-touch-of-javascript--cms-26528 -->
 <div class="hidden sm:block">
-  <h3 class="font-title text-md font-semibold mb-2 text-center">Important Events</h3>
+  <h3 class="font-title text-md font-semibold mb-2 pl-28">Milestones</h3>
 
-  <section id="timeline" class="mt-2">
+  <section id="timeline" class="mt-2 pl-24">
     <ul>
       <!-- TODO: make li "padding-top" dynamic (not 50px fixed) based on period of time between updates -->
       <% @featured_posts.each do |post| %>
         <li>
           <div>
             <time><b><%= post.published_at.strftime('%b %Y') %></b></time><br>
-            <%= link_to post.title, post_path(post.slug), class: 'cursor-pointer text-brand-orange' %>
+            <small><%= link_to post.title, post_path(post.slug), class: 'cursor-pointer text-brand-orange' %></small>
           </div>
         </li>
       <% end %>

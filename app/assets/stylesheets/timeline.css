@@ -23,9 +23,13 @@
 #timeline ul li div {
   position: relative;
   bottom: 0;
-  width: 225px;
-  padding: 15px;
+  width: 200px;
+  padding: 10px;
   background: #c7f9de;
+}
+
+#timeline ul li:nth-child(even) div {
+  width: 135px;
 }
 
 #timeline ul li div::before {
@@ -49,7 +53,7 @@
 }
 
 #timeline ul li:nth-child(even) div {
-  left: -255px;
+  left: -165px;
 }
 
 /* left carrot tick */
