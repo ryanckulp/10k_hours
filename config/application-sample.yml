@@ -1,6 +1,9 @@
 ADMIN_EMAIL: support@10khours.to
 POSTMARK_API_TOKEN: asdf-qwer-tyui
 PROJECT_NAME: 10kHours
+TAGLINE: Tech entrepreneur learning to farm, raise livestock, and build a compound for experiential networking retreats.
+DESCRIPTION: THIS NEED TO BE RAW HTML
+EXTERNAL_URL: https://twitter.com/ryanckulp
 development:
   BASE_URL: http://localhost:3000
 production:

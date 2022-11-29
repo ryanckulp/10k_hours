@@ -34,6 +34,8 @@ to deploy your own instance, first get the application up and running locally. t
 
 update the values inside `config/application.yml` to your liking.
 
+5. `rails db:setup` (creates the database)
+
 ## Development
 ```sh
 bin/dev # uses foreman gem to boot server, frontend, and bg job queue
