@@ -22,7 +22,7 @@
           <%= link_to 'View Site', root_path, class: nav_link_classes %>
           <%= link_to 'Logout', logout_path, class: nav_link_classes %>
         <% else %>
-          <%= link_to 'Follow Me', follow_me_link, target: '_blank', class: nav_link_classes  %>
+          <%= link_to 'Follow Me', Project.current.external_url, target: '_blank', class: nav_link_classes  %>
         <% end %>
       </div>
     </div>
