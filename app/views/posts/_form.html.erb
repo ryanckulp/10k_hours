@@ -4,29 +4,35 @@
     <%= form.text_field :title, required: true, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'Built a bee trap' %>
   </div>
 
+  <div class="mb-4">
+    <%= form.label :meta_description, 'Meta Description (170 chars max)', class: 'block text-sm font-medium text-gray-700' %>
+    <%= form.text_area :meta_description, required: true, maxlength: 170, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'Learn how I built bee traps without getting stung.' %>
+    <small>Appears as your SEO description in SERP, as well as the truncated preview on your home feed.</small>
+  </div>
+
   <div class="mb-4 flex gap-x-2">
     <div class="w-full">
-      <%= form.label :dollars, class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.label :dollars, 'Dollars Invested', class: 'block text-sm font-medium text-gray-700' %>
       <%= form.number_field :dollars, step: :any, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: '132.47' %>
     </div>
 
     <div class="w-full">
-      <%= form.label :hours, class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.label :hours, 'Hours Invested', class: 'block text-sm font-medium text-gray-700' %>
       <%= form.text_field :hours, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'Built a bee trap' %>
     </div>
   </div>
 
   <div class="mb-4">
-    <%= form.rich_text_area :content, required: true, class: 'min-h-80', placeholder: 'Today I decided to stop making excuses about not being Jesus, the carpenter and I...' %>
+    <%= form.rich_text_area :content, required: true, class: 'min-h-96', placeholder: 'Today I decided to stop making excuses about not being Jesus, the carpenter and I...' %>
   </div>
 
   <div class="mb-4 flex gap-x-2">
     <div>
-      <%= form.label 'Publish Date', class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.label :published_at, 'Publish Date', class: 'block text-sm font-medium text-gray-700' %>
       <%= form.date_field :published_at, required: true, value: @post.published_at.try(:to_date) || Date.today %>
     </div>
     <div>
-      <%= form.label 'Feature on Timeline', class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.label :featured, 'Feature on Timeline?', class: 'block text-sm font-medium text-gray-700' %>
       <%= form.check_box :featured %>
       <small>If checked, this update will be highlighted on your feed's visual timeline.</small>
     </div>

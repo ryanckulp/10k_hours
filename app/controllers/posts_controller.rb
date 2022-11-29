@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include ActiveStorage::SetCurrent
   include Pagy::Backend
 
   before_action :authenticate_user!, except: [:index, :show]
@@ -44,6 +45,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :dollars, :hours, :published_at, :featured)
+    params.require(:post).permit(:title, :meta_description, :content, :dollars, :hours, :published_at, :featured)
   end
 end

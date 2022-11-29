@@ -7,7 +7,7 @@
   </div>
 
   <div class="mb-4">
-    <%= single_post? ? post.content : post.content.to_plain_text.truncate(140) %>
+    <%= single_post? ? post.content : post.truncated_preview %>
   </div>
 
   <div class="flex">

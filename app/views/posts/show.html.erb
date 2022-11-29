@@ -1,1 +1,8 @@
+<% meta title: @post.title, description: @post.truncated_preview %>
+
+<meta name="twitter:title" content="<%= @post.title %>">
+<meta name="twitter:image" content="<%= @post.featured_image.url %>">
+<meta property="og:description" content="<%= @post.truncated_preview %>">
+<meta name="og:image" content="<%= @post.featured_image.url %>">
+
 <%= render @post %>
