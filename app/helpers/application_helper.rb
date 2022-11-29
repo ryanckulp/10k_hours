@@ -5,6 +5,14 @@ module ApplicationHelper
     Date.today.strftime('%B %d, %Y')
   end
 
+  def project_avatar
+    Project.current.avatar.url || 'avatar.png' # default 10k Hours logo
+  end
+
+  def project_banner
+    Project.current.banner.url
+  end
+
   def project_progress_percentage
     (Post.hours_spent.round(1) / 10000.0).round(4)
   end
