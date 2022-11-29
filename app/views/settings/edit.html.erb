@@ -23,17 +23,17 @@
     </div>
 
     <div class="mb-4">
-      <%= form.label :avatar, (@project.avatar.present? ? 'Avatar (exists)' : 'Avatar (missing)' ), class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.label :avatar, asset_label(@project.avatar), class: 'block text-sm font-medium text-gray-700' %>
       <%= form.file_field :avatar %>
     </div>
 
     <div class="mb-4">
-      <%= form.label :banner, (@project.banner.present? ? 'Banner (exists)' : 'Banner (missing)' ), class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.label :banner, asset_label(@project.banner), class: 'block text-sm font-medium text-gray-700' %>
       <%= form.file_field :banner %>
     </div>
 
     <div class="mb-4">
-      <%= form.label :open_graph, (@project.open_graph.present? ? 'Open Graph (exists)' : 'Open Graph (missing)' ), class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.label :open_graph, asset_label(@project.open_graph), class: 'block text-sm font-medium text-gray-700' %>
       <%= form.file_field :open_graph %>
     </div>
 
