@@ -22,6 +22,21 @@
       <%= form.text_field :external_url, required: true, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'https://twitter.com/ryanckulp' %>
     </div>
 
+    <div class="mb-4">
+      <%= form.label :avatar, (@project.avatar.present? ? 'Avatar (exists)' : 'Avatar (missing)' ), class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.file_field :avatar %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :banner, (@project.banner.present? ? 'Banner (exists)' : 'Banner (missing)' ), class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.file_field :banner %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :open_graph, (@project.open_graph.present? ? 'Open Graph (exists)' : 'Open Graph (missing)' ), class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.file_field :open_graph %>
+    </div>
+
     <div class="text-right">
       <%= form.submit 'Update', class: 'cursor-pointer inline-flex items-center rounded-md border border-transparent bg-brand-blue hover:bg-brand-blue-light px-3 py-2 text-sm font-medium leading-4 text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2' %>
     </div>

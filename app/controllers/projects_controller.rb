@@ -14,6 +14,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :tagline, :description, :external_url)
+    params.require(:project).permit(:name, :tagline, :description, :external_url, :avatar, :banner, :open_graph)
   end
 end

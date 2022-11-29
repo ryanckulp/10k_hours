@@ -1,5 +1,5 @@
 <div class="mb-8 p-3 bg-white border border-2 border-black">
-  <%= image_tag 'kulp-estate-10k-hours-banner.png', class: 'mb-4' %>
+  <%= image_tag project_banner, class: 'mb-4' if project_banner %>
   <h1 class="font-title text-4xl sm:text-5xl font-bold"><%= Project.current.name %></h1>
   <p><%= Project.current.tagline %></p>
 </div>

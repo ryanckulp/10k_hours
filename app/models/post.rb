@@ -14,10 +14,9 @@ class Post < ApplicationRecord
   end
 
   def featured_image_url
-    return if content.embeds.empty?
     content.embeds.find { |embed| embed.image? }.url
-  rescue => e # probably no 'image' type attachments, revert
-    nil
+  rescue => e # probably no 'image' type attachments, revert to og
+    Project.current.open_graph.url
   end
 
   class << self
