@@ -13,9 +13,11 @@ class Post < ApplicationRecord
     meta_description || content.to_plain_text.truncate(140)
   end
 
-  def featured_image
+  def featured_image_url
     return if content.embeds.empty?
-    content.embeds.find { |embed| embed.image? }
+    content.embeds.find { |embed| embed.image? }.url
+  rescue => e # probably no 'image' type attachments, revert
+    nil
   end
 
   class << self

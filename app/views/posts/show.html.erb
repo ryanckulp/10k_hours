@@ -1,8 +1,10 @@
 <% meta title: @post.title, description: @post.truncated_preview %>
 
+<% featured_image = @post.featured_image_url || 'open-graph.jpg' %>
+
 <meta name="twitter:title" content="<%= @post.title %>">
-<meta name="twitter:image" content="<%= @post.featured_image.url %>">
+<meta name="twitter:image" content="<%= image_url featured_image %>">
 <meta property="og:description" content="<%= @post.truncated_preview %>">
-<meta name="og:image" content="<%= @post.featured_image.url %>">
+<meta name="og:image" content="<%= image_url featured_image %>">
 
 <%= render @post %>
