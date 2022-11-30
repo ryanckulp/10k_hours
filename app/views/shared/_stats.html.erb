@@ -2,17 +2,17 @@
   <div>
     <h3 class="font-title  text-md font-semibold mb-4">Stats</h3>
     <p><b>Project Start</b>: <%= project_start_date %></p>
-    <p><b>Progress Reports: </b><%= Post.count %></p>
+    <p><b>Progress Reports: </b><%= Post.published.count %></p>
     <p><b>Time Spent: </b><%= Post.hours_spent.round(1) %> hours (<%= project_progress_percentage %>% to 10k)</p>
     <p><b>Dollars Spent: </b><%= number_to_currency(Post.dollars_spent, precision: 2) %></p>
     <p><b>Dollars per Hour: </b><%= number_to_currency(Post.dollars_per_hour, precision: 2) %></p>
   </div>
   <div>
     <h3 class="font-title text-md font-semibold mb-4">Time Invested</h3>
-    <%= column_chart Post.where(published_at: 12.weeks.ago..Time.now).group_by_week(:published_at, week_start: :monday, format: "%b %d").sum(:hours), suffix: ' hours', colors: brand_colors, dataset: { borderWidth: 0 } %>
+    <%= column_chart Post.published.where(published_at: 12.weeks.ago..Time.now).group_by_week(:published_at, week_start: :monday, format: "%b %d").sum(:hours), suffix: ' hours', colors: brand_colors, dataset: { borderWidth: 0 } %>
   </div>
   <div>
     <h3 class="font-title text-md font-semibold mb-4">Money Invested</h3>
-    <%= column_chart Post.where(published_at: 12.weeks.ago..Time.now).group_by_week(:published_at, week_start: :monday, format: "%b %d").sum(:dollars), prefix: '$', colors: brand_colors, dataset: { borderWidth: 0 } %>
+    <%= column_chart Post.published.where(published_at: 12.weeks.ago..Time.now).group_by_week(:published_at, week_start: :monday, format: "%b %d").sum(:dollars), prefix: '$', colors: brand_colors, dataset: { borderWidth: 0 } %>
   </div>
 </div>

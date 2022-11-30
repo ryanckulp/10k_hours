@@ -11,7 +11,7 @@ class Post < ApplicationRecord
   scope :published, -> { where(visibility: 'public') }
   scope :draft, -> { where(visibility: 'draft') }
   scope :newest_to_oldest, -> { order(published_at: :desc) }
-  scope :featured, -> { published.where(featured: true).newest_to_oldest }
+  scope :featured, -> { published.where(featured: true).newest_to_oldest.limit(10) }
 
   def truncated_preview
     meta_description || content.to_plain_text.truncate(140)
@@ -25,11 +25,11 @@ class Post < ApplicationRecord
 
   class << self
     def hours_spent
-      all.sum(:hours)
+      published.sum(:hours)
     end
 
     def dollars_spent
-      all.sum(:dollars)
+      published.sum(:dollars)
     end
 
     def dollars_per_hour
