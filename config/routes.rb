@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :posts
   get 'settings', to: 'settings#edit', as: 'settings'
   resources :projects, only: [:update]
+  get 'rss', to: 'rss#index', format: 'xml', as: :feed
 
   devise_for :users
   get 'logout', to: 'pages#logout', as: 'logout'
