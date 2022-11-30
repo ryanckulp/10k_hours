@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
   def index
     @featured_posts = Post.featured
-    @pagy, @posts = pagy(Post.newest_to_oldest)
+    @pagy, @posts = pagy(Post.published.newest_to_oldest)
   end
 
   def new
@@ -45,6 +45,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :meta_description, :content, :dollars, :hours, :published_at, :featured)
+    params.require(:post).permit(:title, :meta_description, :content, :dollars, :hours, :visibility, :published_at, :featured)
   end
 end

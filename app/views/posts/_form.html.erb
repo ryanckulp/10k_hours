@@ -13,12 +13,12 @@
   <div class="mb-4 flex gap-x-2">
     <div class="w-full">
       <%= form.label :dollars, 'Dollars Invested', class: 'block text-sm font-medium text-gray-700' %>
-      <%= form.number_field :dollars, step: :any, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: '132.47' %>
+      <%= form.number_field :dollars, step: :any, required: true, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: '132.47' %>
     </div>
 
     <div class="w-full">
       <%= form.label :hours, 'Hours Invested', class: 'block text-sm font-medium text-gray-700' %>
-      <%= form.text_field :hours, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'Built a bee trap' %>
+      <%= form.number_field :hours, step: :any, required: true, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'Built a bee trap' %>
     </div>
   </div>
 
@@ -28,13 +28,17 @@
 
   <div class="mb-4 flex gap-x-2">
     <div>
-      <%= form.label :published_at, 'Publish Date', class: 'block text-sm font-medium text-gray-700' %>
-      <%= form.date_field :published_at, required: true, value: @post.published_at.try(:to_date) || Date.today %>
-    </div>
-    <div>
       <%= form.label :featured, 'Feature on Timeline?', class: 'block text-sm font-medium text-gray-700' %>
       <%= form.check_box :featured %>
       <small>If checked, this update will be highlighted on your feed's visual timeline.</small>
+    </div>
+    <div>
+      <%= form.label :visibility, class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.select :visibility, Post::VISIBILITY_OPTIONS, required: true, value: @post.visibility || 'public' %>
+    </div>
+    <div>
+      <%= form.label :published_at, 'Publish Date', class: 'block text-sm font-medium text-gray-700' %>
+      <%= form.date_field :published_at, required: true, value: @post.published_at.try(:to_date) || Date.today %>
     </div>
   </div>
 

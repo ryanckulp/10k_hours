@@ -2,12 +2,16 @@ class Post < ApplicationRecord
   include Sluggable
   belongs_to :user
 
+  VISIBILITY_OPTIONS = %w(public draft)
+
   has_rich_text :content
-  validates_presence_of :title, :content
+  validates_presence_of :title, :content, :dollars, :hours, :visibility
   validates_uniqueness_of :slug
 
+  scope :published, -> { where(visibility: 'public') }
+  scope :draft, -> { where(visibility: 'draft') }
   scope :newest_to_oldest, -> { order(published_at: :desc) }
-  scope :featured, -> { where(featured: true).newest_to_oldest }
+  scope :featured, -> { published.where(featured: true).newest_to_oldest }
 
   def truncated_preview
     meta_description || content.to_plain_text.truncate(140)
