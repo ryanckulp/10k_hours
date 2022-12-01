@@ -25,6 +25,7 @@ gem 'groupdate'
 gem 'image_processing', '~> 1.2'
 gem 'pagy'
 
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 
@@ -49,4 +50,5 @@ group :test do
   gem 'shoulda-callback-matchers'
   gem 'shoulda-matchers'
   gem 'faker'
+  gem 'simplecov'
 end
