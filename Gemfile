@@ -51,4 +51,5 @@ group :test do
   gem 'shoulda-matchers'
   gem 'faker'
   gem 'simplecov'
+  gem 'database_cleaner'
 end

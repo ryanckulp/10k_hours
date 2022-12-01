@@ -87,6 +87,12 @@ GEM
     concurrent-ruby (1.1.10)
     connection_pool (2.3.0)
     crass (1.0.6)
+    database_cleaner (2.0.1)
+      database_cleaner-active_record (~> 2.0.0)
+    database_cleaner-active_record (2.0.1)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     debug (1.6.3)
       irb (>= 1.3.6)
       reline (>= 0.3.1)
@@ -170,6 +176,8 @@ GEM
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     nokogiri (1.13.9-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.9-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
@@ -277,6 +285,8 @@ GEM
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.21-arm64-darwin)
       railties (>= 6.0.0)
+    tailwindcss-rails (2.0.21-x86_64-darwin)
+      railties (>= 6.0.0)
     tailwindcss-rails (2.0.21-x86_64-linux)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -309,12 +319,14 @@ GEM
 PLATFORMS
   arm64-darwin-21
   ruby
+  x86_64-darwin
   x86_64-linux
 
 DEPENDENCIES
   bootsnap
   capybara
   chartkick
+  database_cleaner
   debug
   delayed
   devise
