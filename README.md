@@ -42,6 +42,8 @@ bin/dev # uses foreman gem to boot server, frontend, and bg job queue
 ```
 
 ## Testing
+
+make sure you have firefox installed (https://firefox.com)
 ```
 bundle exec rspec # runs all tests inside spec/
 bundle exec rspec spec/dir_name # runs all tests inside given directory
