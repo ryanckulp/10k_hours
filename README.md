@@ -49,6 +49,10 @@ bundle exec rspec # runs all tests inside spec/
 bundle exec rspec spec/dir_name # runs all tests inside given directory
 ```
 
+to view your test coverage:
+
+`open coverage/index.html`
+
 ## Deploying
 
 where you deploy the application will dictate whether you need additional configurations.
