@@ -6,8 +6,9 @@ class PagesController < ApplicationController
     redirect_to root_path
   end
 
-  def page
-    @page_key = request.path[1..-1]
-    render "pages/#{@page_key}"
-  end
+  # TODO: Unused method
+  # def page
+  #   @page_key = request.path[1..-1]
+  #   render "pages/#{@page_key}"
+  # end
 end

@@ -1,5 +1,4 @@
 require 'rails_helper'
-# include Pagy::Backend
 
 RSpec.describe DashboardController, type: :controller do
   ## Index -----------------------------
