@@ -1,13 +1,45 @@
 <div class="mb-8 bg-white p-5 border border-black border-2 <%= 'mx-auto max-w-3xl' if single_post? %>">
-  <div class="mb-4 flex">
-    <h3 class="font-title cursor-pointer text-2xl font-bold basis-5/6">
-      <%= link_to post.title, post_path(post.slug) %>
-    </h3>
-    <small class="flex-1 text-right basis-1/6"><%= post.published_at.strftime('%B %d, %Y') %></small>
-  </div>
-
   <div class="mb-4">
-    <%= single_post? ? post.content : post.truncated_preview %>
+    <% if single_post? %>
+
+      <div class="sm:flex">
+        <div class="order-2 flex-1 text-left sm:text-right">
+          <small><%= post.published_at.strftime('%B %d, %Y') %></small>
+        </div>
+        <div class="order-1">
+          <h3 class="mb-8 font-title cursor-pointer text-xl font-bold">
+            <%= link_to post.title, post_path(post.slug) %>
+          </h3>
+        </div>
+      </div>
+
+      <%= post.content %>
+
+    <% else %>
+
+      <div class="sm:flex justify-between gap-x-3">
+        <div class="sm:basis-3/6 sm:order-2">
+          <h3 class="font-title cursor-pointer text-md sm:text-2xl font-bold">
+            <%= link_to post.title, post_path(post.slug) %>
+          </h3>
+          <small class="sm:hidden"><%= post.published_at.strftime('%B %d, %Y') %></small>
+          <p class="hidden sm:block"><%= post.truncated_preview %></p>
+        </div>
+        <% if post.featured_image_url %>
+          <div class="sm:basis-2/6 sm:order-1">
+            <%= link_to post_path(post.slug) do %>
+              <%= image_tag post.featured_image_url, class: 'mt-4 sm:mt-0 w-full drop-shadow-lg rounded-md origin-center object-cover h-48 sm:max-h-lg' %>
+            <% end %>
+            <p class="sm:hidden mt-4"><%= post.truncated_preview %></p>
+          </div>
+        <% else %>
+          <p class="sm:hidden mt-4"><%= post.truncated_preview %></p>
+        <% end %>
+        <div class="order-last sm:basis-1/6">
+          <small class="hidden sm:block sm:text-right"><%= post.published_at.strftime('%B %d, %Y') %></small>
+        </div>
+      </div>
+    <% end %>
   </div>
 
   <div class="flex">
@@ -21,11 +53,9 @@
     <div class="flex-1 text-right">
       <% if current_user %>
         <%= link_to 'Edit this post', edit_post_path(post), class: 'underline' %>
-
-        <% if single_post? %>
-          | <%= link_to 'View all posts', root_path, class: 'underline' %>
-        <% end %>
       <% end %>
+
+      <%= link_to 'View all posts', root_path, class: 'underline' if single_post? %>
     </div>
   </div>
 </div>
