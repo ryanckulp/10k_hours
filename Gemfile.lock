@@ -87,6 +87,12 @@ GEM
     concurrent-ruby (1.1.10)
     connection_pool (2.3.0)
     crass (1.0.6)
+    database_cleaner (2.0.1)
+      database_cleaner-active_record (~> 2.0.0)
+    database_cleaner-active_record (2.0.1)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     debug (1.6.3)
       irb (>= 1.3.6)
       reline (>= 0.3.1)
@@ -100,6 +106,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
+    docile (1.4.0)
     erubi (1.11.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -170,6 +177,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.9-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.9-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -204,6 +213,10 @@ GEM
       activesupport (= 7.0.4)
       bundler (>= 1.15.0)
       railties (= 7.0.4)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -257,6 +270,12 @@ GEM
       activesupport (>= 3)
     shoulda-matchers (5.2.0)
       activesupport (>= 5.2.0)
+    simplecov (0.21.2)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -269,6 +288,8 @@ GEM
     tailwindcss-rails (2.0.21)
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.21-arm64-darwin)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.21-x86_64-darwin)
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.21-x86_64-linux)
       railties (>= 6.0.0)
@@ -302,12 +323,14 @@ GEM
 PLATFORMS
   arm64-darwin-21
   ruby
+  x86_64-darwin
   x86_64-linux
 
 DEPENDENCIES
   bootsnap
   capybara
   chartkick
+  database_cleaner
   debug
   delayed
   devise
@@ -327,11 +350,13 @@ DEPENDENCIES
   puma (~> 5.6)
   rack-cors
   rails
+  rails-controller-testing
   redis
   rspec-rails
   selenium-webdriver
   shoulda-callback-matchers
   shoulda-matchers
+  simplecov
   sprockets-rails
   stimulus-rails
   tailwindcss-rails
