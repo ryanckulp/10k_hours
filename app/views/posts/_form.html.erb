@@ -26,7 +26,7 @@
     <%= form.rich_text_area :content, required: true, class: 'min-h-96', placeholder: 'Today I decided to stop making excuses about not being Jesus, the carpenter and I...' %>
   </div>
 
-  <div class="mb-4 flex gap-x-2">
+  <div class="mb-4 sm:flex sm:items-center space-y-4 sm:gap-x-2">
     <div>
       <%= form.label :featured, 'Feature on Timeline?', class: 'block text-sm font-medium text-gray-700' %>
       <%= form.check_box :featured %>
@@ -44,7 +44,7 @@
 
   <div class="flex">
     <div>
-      <%= link_to 'Delete', post_path(@post.slug), class: 'cursor-pointer inline-flex items-center rounded-md border border-transparent bg-red-500 hover:bg-red-600 px-3 py-2 text-sm font-medium leading-4 text-black shadow-sm focus:outline-none', data: { "turbo-method": :delete, "turbo-confirm": 'Are you sure you want to delete this post?' } if @post.id? %>
+      <%= link_to 'Delete', post_path(@post.slug), class: 'cursor-pointer inline-flex items-center rounded-md border border-transparent bg-brand-purple-light hover:bg-brand-purple px-3 py-2 text-sm font-medium leading-4 text-black shadow-sm focus:outline-none', data: { "turbo-method": :delete, "turbo-confirm": 'Are you sure you want to delete this post?' } if @post.id? %>
     </div>
     <div class="flex-1 text-right">
       <%= form.submit class: 'cursor-pointer inline-flex items-center rounded-md border border-transparent bg-brand-blue hover:bg-brand-blue-light px-3 py-2 text-sm font-medium leading-4 text-black shadow-sm focus:outline-none' %>
