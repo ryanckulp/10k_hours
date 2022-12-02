@@ -43,8 +43,6 @@ class Post < ApplicationRecord
 
     def dollars_per_hour
       (dollars_spent.to_f / hours_spent.to_f).round(2)
-    rescue => e
-      'n/a' # may be dividing by zero
     end
   end
 end

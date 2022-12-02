@@ -1,7 +1,7 @@
 module SettingsHelper
   ASSET_DIMENSIONS = {
     'avatar' => '250x250px',
-    'banner' => '1488x200px',
+    'banner' => '1488x2000px',
     'open_graph' => '1200x630px'
   }
 

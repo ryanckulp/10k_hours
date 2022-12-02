@@ -1,6 +1,6 @@
 module ApplicationHelper
   def project_start_date
-    Post.first.created_at.strftime('%B %d, %Y')
+    Post.published.first.created_at.strftime('%B %d, %Y')
   rescue
     Date.today.strftime('%B %d, %Y')
   end
