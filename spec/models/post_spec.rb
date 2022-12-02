@@ -9,7 +9,7 @@ RSpec.describe Post, type: :model do
 
   context 'with user' do
     let(:post) { build :post }
-    
+
     it 'is valid with valid attributes' do
       expect(post).to be_valid
     end
@@ -27,7 +27,7 @@ RSpec.describe Post, type: :model do
         let(:post) { build :post, meta_description: nil }
 
         it 'should return the truncated context' do
-          expect(post.truncated_preview).to eq('The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in t...')
+          expect(post.truncated_preview).to include('The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny')
         end
       end
     end
