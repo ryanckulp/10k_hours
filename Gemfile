@@ -52,4 +52,5 @@ group :test do
   gem 'faker'
   gem 'simplecov'
   gem 'database_cleaner'
+  gem 'rails-controller-testing'
 end
