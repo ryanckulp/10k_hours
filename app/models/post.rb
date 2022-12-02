@@ -14,13 +14,22 @@ class Post < ApplicationRecord
   scope :featured, -> { published.where(featured: true).newest_to_oldest.limit(10) }
 
   def truncated_preview
-    meta_description || content.to_plain_text.truncate(140)
+    meta_description || content.to_plain_text.truncate(280)
   end
 
   def featured_image_url
-    content.embeds.find { |embed| embed.image? }.url
+    first_image_url
   rescue => e # probably no 'image' type attachments, revert to og
     Project.current.open_graph.url
+  end
+
+  # content.embeds.find() grabs oldest image by created_at;
+  # if user adds a new image at top later, it won't become featured, thus the filename lookup
+  def first_image_url
+    filename = content.body.to_s.split('filename=')[1].split(' filesize')[0].gsub('"','')
+    content.embeds.find { |embed| embed.image? && filename == embed.blob.filename.to_s }.url
+  rescue => e
+    content.embeds.find { |embed| embed.image? }.url
   end
 
   class << self
