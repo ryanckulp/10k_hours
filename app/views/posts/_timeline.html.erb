@@ -9,8 +9,8 @@
       <% @featured_posts.each do |post| %>
         <li>
           <div>
-            <time><b><%= post.published_at.strftime('%b %Y') %></b></time><br>
-            <small><%= link_to post.title, post_path(post.slug), class: 'cursor-pointer text-brand-orange' %></small>
+            <time class="font-bold text-brand-blue"><%= post.published_at.strftime('%b %Y') %></time><br>
+            <small><%= link_to post.title, post_path(post.slug), class: 'cursor-pointer text-white leading-none' %></small>
           </div>
         </li>
       <% end %>
