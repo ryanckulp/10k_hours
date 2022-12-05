@@ -4,6 +4,17 @@
     <%= form.text_field :title, required: true, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'Built a bee trap' %>
   </div>
 
+  <div class="mb-4 sm:flex space-y-4">
+    <div>
+      <%= form.check_box :recurring %>
+      <%= form.label :recurring, 'Recurring task?', class: 'text-sm font-medium text-gray-700' %><br>
+      <small>If checked, this update will accrue hours/dollars per your schedule.</small>
+    </div>
+    <div class="flex-1 sm:text-right">
+      <%= form.select_recurring :recurring_rule, nil, { allow_blank: true }, class: @post.recurring? ? '' : 'hidden' %>
+    </div>
+  </div>
+
   <div class="mb-4">
     <%= form.label :meta_description, 'Meta Description (170 chars max)', class: 'block text-sm font-medium text-gray-700' %>
     <%= form.text_area :meta_description, required: false, maxlength: 170, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'Learn how I built bee traps without getting stung.' %>
@@ -28,8 +39,8 @@
 
   <div class="mb-4 sm:flex sm:items-center space-y-4 sm:gap-x-2">
     <div>
-      <%= form.label :featured, 'Feature on Timeline?', class: 'block text-sm font-medium text-gray-700' %>
       <%= form.check_box :featured %>
+      <%= form.label :featured, 'Feature on Timeline?', class: 'text-sm font-medium text-gray-700' %><br>
       <small>If checked, this update will be highlighted on your feed's visual timeline.</small>
     </div>
     <div>
@@ -51,3 +62,16 @@
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  var recurringDropdown = document.getElementById('post_recurring_rule');
+
+  document.getElementById('post_recurring').addEventListener('change', function(self) {
+    if (this.checked) {
+      // TODO: hide more elements, e.g. content / featured / visibility
+      recurringDropdown.classList.remove('hidden');
+    } else {
+      recurringDropdown.classList.add('hidden');
+    }
+  })
+</script>
