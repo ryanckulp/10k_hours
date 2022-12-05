@@ -24,7 +24,8 @@ gem 'chartkick'
 gem 'groupdate'
 gem 'image_processing', '~> 1.2'
 gem 'pagy'
-
+gem 'ice_cube' # scheduling DSL
+gem 'recurring_select', github: 'gregschmit/recurring_select', branch: 'master' # frontend UI for ice_cube
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
