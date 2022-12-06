@@ -18,7 +18,6 @@ gem 'figaro'
 gem 'delayed' # delayed_job_active_record rails 7 fork: https://github.com/betterment/delayed
 gem 'metamagic' # easily insert metatags for SEO / opengraph
 gem 'rack-cors', :require => 'rack/cors'
-gem 'postmark-rails'
 gem 'devise'
 gem 'chartkick'
 gem 'groupdate'
@@ -39,7 +38,6 @@ end
 
 group :development do
   gem 'web-console'
-  gem 'letter_opener' # view mailers in browser
 end
 
 group :test do

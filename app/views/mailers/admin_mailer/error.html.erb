@@ -1,4 +1,4 @@
-<p>Something happened at <%= ENV['PROJECT_NAME'] %>.</p>
+<p>Something happened at <%= Project.current.name %>.</p>
 
 <% if @context %>
   <p>context provided: <%= @context %></p>

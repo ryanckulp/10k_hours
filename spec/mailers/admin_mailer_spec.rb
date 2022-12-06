@@ -7,7 +7,7 @@ RSpec.describe AdminMailer, type: :mailer do
 
     it 'renders the headers' do
       expect(mail.subject).to eq('Test Subject')
-      expect(mail.to).to eq([ENV['ADMIN_EMAIL']])
+      expect(mail.to).to eq([DEFAULT_VALUES['ADMIN_EMAIL']])
       expect(mail.from).to eq(['support@10khours.to'])
     end
 
