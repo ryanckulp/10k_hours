@@ -45,6 +45,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :meta_description, :content, :dollars, :hours, :visibility, :published_at, :featured)
+    params.require(:post).permit(:title, :meta_description, :content, :dollars, :hours, :visibility, :published_at, :featured, :recurring, :recurring_rule)
   end
 end

@@ -18,13 +18,14 @@ gem 'figaro'
 gem 'delayed' # delayed_job_active_record rails 7 fork: https://github.com/betterment/delayed
 gem 'metamagic' # easily insert metatags for SEO / opengraph
 gem 'rack-cors', :require => 'rack/cors'
-gem 'postmark-rails'
 gem 'devise'
 gem 'chartkick'
 gem 'groupdate'
 gem 'image_processing', '~> 1.2'
 gem 'pagy'
-
+gem 'ice_cube' # scheduling DSL
+gem 'recurring_select', github: 'gregschmit/recurring_select', branch: 'master' # frontend UI for ice_cube
+gem 'whenever', require: false
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -38,7 +39,6 @@ end
 
 group :development do
   gem 'web-console'
-  gem 'letter_opener' # view mailers in browser
 end
 
 group :test do

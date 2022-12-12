@@ -5,13 +5,17 @@ class Post < ApplicationRecord
   VISIBILITY_OPTIONS = %w(public draft)
 
   has_rich_text :content
-  validates_presence_of :title, :content, :dollars, :hours, :visibility
+  validates_presence_of :title, :dollars, :hours, :visibility
   validates_uniqueness_of :slug
+
+  scope :non_recurring, -> { where(recurring: false) }
+  scope :recurring, -> { where(recurring: true) } # any recurring post or sub-post
+  scope :recurring_with_rule, -> { recurring.where.not(recurring_rule: nil) } # 'parent' post that dictates schedule
 
   scope :published, -> { where(visibility: 'public') }
   scope :draft, -> { where(visibility: 'draft') }
   scope :newest_to_oldest, -> { order(published_at: :desc) }
-  scope :featured, -> { published.where(featured: true).newest_to_oldest.limit(10) }
+  scope :featured, -> { published.non_recurring.where(featured: true).newest_to_oldest.limit(10) }
 
   def truncated_preview
     meta_description || content.to_plain_text.truncate(280)
@@ -30,6 +34,10 @@ class Post < ApplicationRecord
     content.embeds.find { |embed| embed.image? && filename == embed.blob.filename.to_s }.url
   rescue => e
     content.embeds.find { |embed| embed.image? }.url
+  end
+
+  def repetitions
+    Post.recurring.where(recurring_id: self.id)
   end
 
   class << self

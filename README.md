@@ -30,11 +30,8 @@ to deploy your own instance, first get the application up and running locally. t
 1. clone the repo
 2. `cd ten_k_hours && bundle` (installs dependencies)
 3. `bundle exec figaro install` (generates empty secrets file)
-4. `cp config/application-sample.yml config/application.yml` (put secrets / ENV vars here)
-
-update the values inside `config/application.yml` to your liking.
-
-5. `rails db:setup` (creates the database)
+4. update values inside `config/initializers/default_values.rb` to your liking.
+5. `rails db:setup` (creates the database with values from step 4)
 
 ## Development
 ```sh

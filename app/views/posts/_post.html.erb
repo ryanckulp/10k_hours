@@ -13,10 +13,23 @@
         </div>
       </div>
 
-      <%= post.content %>
+      <div id="post_content">
+        <%= post.content %>
+      </div>
 
+    <% elsif post.recurring? %>
+
+      <div class="flex">
+        <div class="">
+          <p class="font-bold"><%= post.title %></p>
+        </div>
+        <div class="flex-1 text-right">
+          <small><%= post.published_at.strftime('%B %d, %Y') %></small>
+        </div>
+      </div>
+
+      <p><%= post.meta_description %></p>
     <% else %>
-
       <div class="sm:flex justify-between gap-x-3">
         <div class="sm:basis-3/6 sm:order-2">
           <h3 class="font-title cursor-pointer text-md sm:text-2xl font-bold">

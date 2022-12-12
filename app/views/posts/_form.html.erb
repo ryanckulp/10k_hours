@@ -4,6 +4,20 @@
     <%= form.text_field :title, required: true, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'Built a bee trap' %>
   </div>
 
+  <% unless @post.recurring_id? %>
+    <div class="mb-4 sm:flex space-y-4">
+      <div>
+        <%= form.check_box :recurring %>
+        <%= form.label :recurring, 'Recurring task?', class: 'text-sm font-medium text-gray-700' %><br>
+        <small>If checked, this update will accrue hours/dollars per your schedule.</small>
+      </div>
+      <div class="flex-1 sm:text-right">
+        <% rules = [IceCube::Rule.daily, IceCube::Rule.weekly.day(:saturday, :sunday), IceCube::Rule.weekly, IceCube::Rule.monthly.day_of_month(1), IceCube::Rule.monthly.day_of_month(-1)] %>
+        <%= form.select_recurring :recurring_rule, rules, { allow_blank: false }, class: @post.recurring? ? '' : 'hidden' %>
+      </div>
+    </div>
+  <% end %>
+
   <div class="mb-4">
     <%= form.label :meta_description, 'Meta Description (170 chars max)', class: 'block text-sm font-medium text-gray-700' %>
     <%= form.text_area :meta_description, required: false, maxlength: 170, class: 'block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', placeholder: 'Learn how I built bee traps without getting stung.' %>
@@ -22,23 +36,25 @@
     </div>
   </div>
 
-  <div class="mb-4">
-    <%= form.rich_text_area :content, required: true, class: 'min-h-96', placeholder: 'Today I decided to stop making excuses about not being Jesus, the carpenter and I...' %>
-  </div>
+  <div id="post_fields" class="<%= @post.recurring? ? 'hidden' : '' %>">
+    <div class="mb-4">
+      <%= form.rich_text_area :content, required: true, class: 'min-h-96', placeholder: 'Today I decided to stop making excuses about not being Jesus, the carpenter and I...' %>
+    </div>
 
-  <div class="mb-4 sm:flex sm:items-center space-y-4 sm:gap-x-2">
-    <div>
-      <%= form.label :featured, 'Feature on Timeline?', class: 'block text-sm font-medium text-gray-700' %>
-      <%= form.check_box :featured %>
-      <small>If checked, this update will be highlighted on your feed's visual timeline.</small>
-    </div>
-    <div>
-      <%= form.label :visibility, class: 'block text-sm font-medium text-gray-700' %>
-      <%= form.select :visibility, Post::VISIBILITY_OPTIONS, required: true, value: @post.visibility || 'public' %>
-    </div>
-    <div>
-      <%= form.label :published_at, 'Publish Date', class: 'block text-sm font-medium text-gray-700' %>
-      <%= form.date_field :published_at, required: true, value: @post.published_at.try(:to_date) || Date.today %>
+    <div class="mb-4 sm:flex sm:items-center space-y-4 sm:gap-x-2">
+      <div>
+        <%= form.check_box :featured %>
+        <%= form.label :featured, 'Feature on Timeline?', class: 'text-sm font-medium text-gray-700' %><br>
+        <small>If checked, this update will be highlighted on your feed's visual timeline.</small>
+      </div>
+      <div>
+        <%= form.label :visibility, class: 'block text-sm font-medium text-gray-700' %>
+        <%= form.select :visibility, Post::VISIBILITY_OPTIONS, required: true, value: @post.visibility || 'public' %>
+      </div>
+      <div>
+        <%= form.label :published_at, 'Publish Date', class: 'block text-sm font-medium text-gray-700' %>
+        <%= form.date_field :published_at, required: true, value: @post.published_at.try(:to_date) || Date.today %>
+      </div>
     </div>
   </div>
 
@@ -51,3 +67,34 @@
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  var postFields = document.getElementById('post_fields');
+  var recurringDropdown = document.getElementById('post_recurring_rule');
+
+  document.getElementById('post_recurring').addEventListener('change', function(self) {
+    if (this.checked) {
+      hidePostFields();
+      showRecurringDropdown();
+    } else {
+      showPostFields();
+      hideRecurringDropdown();
+    }
+  })
+
+  function hidePostFields() {
+    postFields.classList.add('hidden');
+  }
+
+  function showPostFields() {
+    postFields.classList.remove('hidden');
+  }
+
+  function showRecurringDropdown() {
+    recurringDropdown.classList.remove('hidden');
+  }
+
+  function hideRecurringDropdown() {
+    recurringDropdown.classList.add('hidden');
+  }
+</script>
