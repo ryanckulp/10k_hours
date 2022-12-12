@@ -38,7 +38,7 @@ class RecurringPostService
 
   def new_post_attributes
     attrs = post.attributes.except('created_at', 'updated_at', 'id', 'slug', 'recurring_rule', 'published_at', 'featured')
-    attrs.merge('recurring_id' => post.id, 'published_at' => Time.now, 'visibility' => 'public')
+    attrs.merge('recurring_id' => post.id, 'published_at' => DateTime.now, 'visibility' => 'public')
   end
 
   # adding 2 to account for new post + parent post, which is the first true repetition

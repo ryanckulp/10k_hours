@@ -12,8 +12,8 @@
         <small>If checked, this update will accrue hours/dollars per your schedule.</small>
       </div>
       <div class="flex-1 sm:text-right">
-        <% rules = [IceCube::Rule.daily, IceCube::Rule.weekly.day(:saturday, :sunday), IceCube::Rule.weekly, IceCube::Rule.monthly.day_of_month(1), IceCube::Rule.monthly.day_of_month(-1)] %>
-        <%= form.select_recurring :recurring_rule, rules, { allow_blank: false }, class: @post.recurring? ? '' : 'hidden' %>
+        <% default_value = @post.recurring_rule? ? JSON.parse(@post.recurring_rule) : nil %>
+        <%= form.select_recurring :recurring_rule, nil, { allow_blank: false }, class: @post.recurring? ? '' : 'hidden', value: default_value %>
       </div>
     </div>
   <% end %>
@@ -71,16 +71,21 @@
 <script type="text/javascript">
   var postFields = document.getElementById('post_fields');
   var recurringDropdown = document.getElementById('post_recurring_rule');
+  var postRecurringStatus = document.getElementById('post_recurring');
 
-  document.getElementById('post_recurring').addEventListener('change', function(self) {
-    if (this.checked) {
-      hidePostFields();
-      showRecurringDropdown();
-    } else {
-      showPostFields();
-      hideRecurringDropdown();
+  function setupRecurringPost() {
+    if (postRecurringStatus != null) {
+      document.getElementById('post_recurring').addEventListener('change', function(self) {
+        if (this.checked) {
+          hidePostFields();
+          showRecurringDropdown();
+        } else {
+          showPostFields();
+          hideRecurringDropdown();
+        }
+      })
     }
-  })
+  }
 
   function hidePostFields() {
     postFields.classList.add('hidden');
@@ -97,4 +102,7 @@
   function hideRecurringDropdown() {
     recurringDropdown.classList.add('hidden');
   }
+
+  // dom ready
+  setupRecurringPost();
 </script>
