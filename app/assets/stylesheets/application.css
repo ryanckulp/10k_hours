@@ -20,3 +20,7 @@
    font-weight: regular;
    font-style: regular;
  }
+
+ #post_content a {
+   color: #efa75d;
+ }
