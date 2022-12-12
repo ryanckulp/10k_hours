@@ -4,7 +4,7 @@ var methods;
 // import $ from "jquery";
 var $ = jQuery;
 
-import RecurringSelectDialog from "./recurring_select_dialog";
+import RecurringSelectDialog from "./recurring_select_dialog.js";
 
 $(function() {
   $(document).on("focus", ".recurring_select", function() {
