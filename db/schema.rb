@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_05_175156) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_12_170545) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -81,6 +81,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_175156) do
     t.string "visibility"
     t.boolean "recurring", default: false
     t.text "recurring_rule"
+    t.bigint "recurring_id"
   end
 
   create_table "projects", force: :cascade do |t|
