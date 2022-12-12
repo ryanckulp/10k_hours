@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
   include Sluggable
+  include Timeable
+
   belongs_to :user
 
   VISIBILITY_OPTIONS = %w(public draft)
