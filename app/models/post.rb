@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   VISIBILITY_OPTIONS = %w(public draft)
 
   has_rich_text :content
-  validates_presence_of :title, :content, :dollars, :hours, :visibility
+  validates_presence_of :title, :dollars, :hours, :visibility
   validates_uniqueness_of :slug
 
   scope :published, -> { where(visibility: 'public') }
