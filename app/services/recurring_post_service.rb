@@ -16,10 +16,9 @@ class RecurringPostService
 
   def should_create_repetition?
     schedule = new_schedule
-    schedule.add_recurrence_rule(rule)
-    next_occurrence = schedule.next_occurrence
+    previous_occurrence = schedule.previous_occurrence(Time.now)
 
-    next_occurrence.between?(1.hour.ago, Time.now)
+    previous_occurrence.between?(1.hour.ago, Time.now)
   end
 
   def create_post
@@ -29,13 +28,19 @@ class RecurringPostService
   end
 
   def new_schedule
-    IceCube::Schedule.new
+    s = IceCube::Schedule.new
+    s.add_recurrence_rule(rule)
+    s.start_time = rule.instance_variable_get(:@start_time)
+    s
   end
 
   def rule
-    RecurringSelect.dirty_hash_to_rule(post.recurring_rule)
+    r = RecurringSelect.dirty_hash_to_rule(post.recurring_rule)
+    r.instance_variable_set(:@start_time, post.created_at)
+    r
   end
 
+  # TODO: upgrade except() to extract()
   def new_post_attributes
     attrs = post.attributes.except('created_at', 'updated_at', 'id', 'slug', 'recurring_rule', 'published_at', 'featured')
     attrs.merge('recurring_id' => post.id, 'published_at' => DateTime.now, 'visibility' => 'public')
