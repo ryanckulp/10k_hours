@@ -4,10 +4,11 @@ class PostsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:edit, :update, :show, :destroy]
+  before_action :filter_posts, only: [:index]
 
   def index
     @featured_posts = Post.featured
-    @pagy, @posts = pagy(Post.published.newest_to_oldest)
+    @pagy, @posts = pagy(@filtered_posts)
   end
 
   def new
@@ -42,6 +43,16 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id]) if @post.nil?
 
     redirect_to root_path, error: 'Post not found' if @post.nil?
+  end
+
+  # improves UI when many recurring tasks exist sequentially without a regular update
+  def filter_posts
+    post_ids = []
+    Post.published.newest_to_oldest.each_with_index do |post, idx|
+      post_ids << post.id unless posts[idx - 1].recurring_id?
+    end
+
+    @filtered_posts = Post.where(id: post_ids)
   end
 
   def post_params
