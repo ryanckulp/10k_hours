@@ -46,9 +46,10 @@ class PostsController < ApplicationController
   end
 
   # improves UI when many recurring tasks exist sequentially without a regular update
-  def filter_posts
-    post_ids = []
-    Post.published.newest_to_oldest.each_with_index do |post, idx|
+  def filter_posts(post_ids = [])
+    posts = Post.published.newest_to_oldest
+
+    posts.each_with_index do |post, idx|
       post_ids << post.id unless posts[idx - 1].recurring_id?
     end
 
