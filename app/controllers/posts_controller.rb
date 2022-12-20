@@ -50,10 +50,11 @@ class PostsController < ApplicationController
     posts = Post.published.newest_to_oldest
 
     posts.each_with_index do |post, idx|
-      post_ids << post.id unless posts[idx - 1].recurring_id?
+      next if post.recurring_id? && posts[idx - 1].recurring_id?
+      post_ids << post.id
     end
 
-    @filtered_posts = Post.where(id: post_ids)
+    @filtered_posts = Post.where(id: post_ids).newest_to_oldest
   end
 
   def post_params
