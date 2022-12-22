@@ -239,7 +239,7 @@
 # Default i18n key
 # Pagy::DEFAULT[:i18n_key] = 'pagy.item_name'   # default
 
-Pagy::DEFAULT[:items] = 10                                # default is 25
+Pagy::DEFAULT[:items] = 5                                # default is 25
 
 # When you are done setting your own default freeze it, so it will not get changed accidentally
 Pagy::DEFAULT.freeze
