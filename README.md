@@ -3,7 +3,7 @@
 
 a side project changelog by [Ryan Kulp](https://www.ryanckulp.com) with a time- and dollar-spent tracker for new skill development.
 
-![10khours-example-website](https://user-images.githubusercontent.com/3083888/204370072-809d1a5e-99a7-4ac0-857a-02becbd090f0.png)
+![10k-hours-example-website](https://user-images.githubusercontent.com/3083888/209222956-6a2d5aec-46bd-4348-9fad-c54bce75342b.png)
 
 source: [example website](https://ranch.ryanckulp.com)
 
